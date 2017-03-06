@@ -246,5 +246,5 @@ button:disabled {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background: #eceff1;
+    background-image: url(./img/pattern.png);
 }
