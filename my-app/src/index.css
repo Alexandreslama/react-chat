@@ -1,5 +1,250 @@
+/* ----------------------------
+    Typo
+---------------------------- */
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
+body,
+.box > *,
+textarea,
+input {
+    font-family: 'Quicksand', sans-serif;
+    color: #454545;
+    overflow: hidden;
+}
+
+
+/* ----------------------------
+    STRUCTURE
+---------------------------- */
+
+html {
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+     background-image: url(./img/pattern.png);
+}
+
+.speakr  {
+    text-align: center;
+    font-size: 80px;
+}
+.speakr-motto {
+    text-align: center;
+    padding: none;
+    margin: none;
+    font-size: 25px;
+}
+.connexionBox {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.connexion{
+    
+    max-width: 500px;
+    font-size: 20px;
+}
+
+.connexion > * {
+    width: 100%;
+}
+
+.connexion > input {
+
+    box-sizing: border-box;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border: none;
+    font-size: 24px;
+    padding: 5px;
+    outline: none;
+    font-weight: 100;
+}
+
+.box {
+    -moz-box-shadow: 0px 0px 15px 0px #656565;
+    -webkit-box-shadow: 0px 0px 15px 0px #656565;
+    -o-box-shadow: 0px 0px 15px 0px #656565;
+    box-shadow: 0px 0px 15px 0px #656565;
+    filter: progid: DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=15);
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 450px;
+    height: calc(95vh - 100px);
+    background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+    border-radius: 20px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    position: relative;
+}
+
+.box > * {
+    width: 100%;
+}
+
+
+
+
+/* ----------------------------
+    MESSAGES
+---------------------------- */
+
+.messages {
+    
+    padding:10px;
+    box-sizing: border-box;
+    align-self: flex-end;
+    max-height: calc(100vh - 310px);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.messages::-webkit-scrollbar {
+    width: 4px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: #eceff1;
+}
+
+
+/* ----------------------------
+    MESSAGE
+---------------------------- */
+
+.message {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.message > * {
+    padding: 5px 10px;
+    max-width: 75%;
+    border-radius: 2px;
+    margin: 10px 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.not-user-message {
+    background-color: #C6A7B4;
+    color: #fff;
+    border-radius: 20px;
+    align-self: flex-end;
+    position: relative;
+    align-self: flex-start;
+    position: relative;
+}
+
+.not-user-message:after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 10px;
+    width: 0;
+    border-width: 0 10px 7px 0;
+    border-style: solid;
+    border-color: #C6A7B4 transparent;
+}
+
+.user-message {
+    background-color: #d299c2;
+    color: #fff;
+    border-radius: 20px;
+    align-self: flex-end;
+    position: relative;
+}
+
+.user-message:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    right: 10px;
+    width: 0;
+    border-width: 7px 0 0 10px;
+    border-style: solid;
+    border-color: #d299c2 transparent;
+}
+
+
+/* ----------------------------
+    FORMULAIRE
+---------------------------- */
+
+.form {
+    align-self: flex-end;
+}
+
+.form > * {
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+    box-sizing: border-box;
+    height: 120px;
+    border: none;
+    background-color: #fefefe;
+    outline: none;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+.info {
+    text-align: right;
+    position: absolute;
+    bottom: 120px;
+    right: 10px;
+    z-index: 99;
+}
+
+button {
+    font-size: 20px;
+    border: none;
+    color: #454545;
+    font-weight: 600;
+    outline: none;
+    height: 100px;
+    background-image: linear-gradient(-20deg, #ddd6f3 0%, #faaca8 100%, #faaca8 100%);
+    margin-bottom: 0px;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+button:disabled {
+    background-image: linear-gradient(-20deg, #ddd6f3 0%, #faaca8 100%, #faaca8 100%);
+    cursor: not-allowed;
+    color: white;
+    outline: none;
+}
+
+
+/* ----------------------------
+    NotFound
+---------------------------- */
+
+.notFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: #eceff1;
 }
