@@ -21,7 +21,7 @@ class Message extends React.Component{
 	  	return(
 	  			<p className="not-user-message">
 
-					<strong>{this.props.details.pseudo}</strong> : {this.props.details.message} <strong>{this.props.timestamp} </strong>
+					<strong>{this.props.details.pseudo}</strong> : {this.props.details.message} <em className="timestamp" >{this.props.timestamp} </em>
 
 				</p>
 

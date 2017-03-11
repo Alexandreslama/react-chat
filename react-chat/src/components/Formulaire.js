@@ -53,9 +53,15 @@ compteur = event => {
 				 </textarea>
 
 				 <div className="info">
-				 	{this.state.length} {this.props.timestamp}
+				 	{this.state.length} 
 				 	
 				 </div>
+				 <div className="last-seen">
+				   <span>Last message was : </span>{this.props.timestamp}
+				 	
+				 </div>
+
+
 
 
 				   <button type="submit"> Send </button>

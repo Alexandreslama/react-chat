@@ -61,7 +61,7 @@ class App extends React.Component{
 	render() {
 		
 		
-		const timestamp = moment().format('LTS');
+		const timestamp = moment().startOf('hour').fromNow();
 		
 
 	
@@ -110,6 +110,7 @@ class App extends React.Component{
 				<Formulaire addMessage={this.addMessage}
 							pseudo={this.props.params.pseudo}
 							length={140}
+							timestamp={timestamp}
 							
 							
 				/> 
