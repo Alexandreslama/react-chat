@@ -1,5 +1,8 @@
 import React from 'react';
 
+ 
+
+
 
 class Message extends React.Component{
 
@@ -9,9 +12,10 @@ class Message extends React.Component{
 			return(
 				
 
+
 				<p className="user-message">
 
-					 {this.props.details.message}  
+					 {this.props.details.message} 
 
 				</p>
 
@@ -33,6 +37,7 @@ class Message extends React.Component{
 	       };
 
 	render() {
+		
 		return this.beforeRender(this.props.isUser(this.props.details.pseudo));
 	}
 		static propTypes ={

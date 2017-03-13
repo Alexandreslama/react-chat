@@ -1,8 +1,7 @@
 import React from 'react';
-import moment from 'moment';
 import Formulaire from './Formulaire';
+import moment from 'moment';
 import Message from './Message';
-import MyEmojiInput from './MyEmojiInput';
 import base from './base';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../animation.css';
@@ -15,7 +14,8 @@ class App extends React.Component{
 
 	state = {
 		messages: {},
-		timestamp: this.props.timestamp
+		timestamp: Date.now(),
+		lastseen: moment().startOf('hour').fromNow()
 	
 	
 	}
@@ -24,6 +24,8 @@ class App extends React.Component{
 		this.ref = base.syncState('/messages', {
 			context: this,
 			state: 'messages'
+
+			
 
 		});
 	}
@@ -46,8 +48,10 @@ class App extends React.Component{
 		//update the state
 		//delete if more than 20 messages
 		Object.keys(messages).slice(0, -20).map(key => messages[key] = null) //null equals delete
-		// this.setState({ messages : messages }); BUT equal
+		
 		this.setState({ messages });
+
+	
 		
 
 	};
@@ -61,21 +65,16 @@ class App extends React.Component{
 	render() {
 		
 		
-		const timestamp = moment().startOf('hour').fromNow();
+		{this.state.timestamp}
 		
-
-	
-
-		
-
 		const messages_const = Object
 
 		.keys(this.state.messages)
 		.map(key => <Message key={key} 
-							 time={this.state.messages}
-							 details={this.state.messages[key]}
+							 
+							 details={this.state.messages[key]}							 
 							 isUser={this.isUser}
-							 timestamp={timestamp}
+							 timestamp={this.state.timestamp}
 							 />
 
 							 );
@@ -103,17 +102,19 @@ class App extends React.Component{
 					transitionLeaveTimeout={200}
 					>
 				
-					{messages_const} 
+					{messages_const}
 
 					</ReactCSSTransitionGroup>
 				</div>
 				<Formulaire addMessage={this.addMessage}
 							pseudo={this.props.params.pseudo}
 							length={140}
-							timestamp={timestamp}
+							lastseen={this.state.lastseen}
 							
 							
 				/> 
+					
+
 			</div> 
 		</div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import MyEmojiInput from './MyEmojiInput';
+
+
 
 
 class Formulaire extends React.Component{
@@ -57,7 +58,7 @@ compteur = event => {
 				 	
 				 </div>
 				 <div className="last-seen">
-				   <span>Last message was : </span>{this.props.timestamp}
+				   <span>Last message was : </span> {this.props.lastseen}
 				 	
 				 </div>
 
