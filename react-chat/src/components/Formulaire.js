@@ -58,7 +58,7 @@ compteur = event => {
 				 	
 				 </div>
 				 <div className="last-seen">
-				   <span>Last message was : </span> {this.props.lastseen}
+				   <span> Welcome to this Chat <strong> {this.props.pseudo}</strong> ! </span> 
 				 	
 				 </div>
 

@@ -26,7 +26,7 @@ class Connexion extends React.Component{
 			 	   placeholder="Enter your pseudo..." 
 			 	   ref={input => {this.pseudoInput = input}}
 				   required/>
-				   <button type="submit"> Go </button>
+				   <button type="submit"> Dive In </button>
 			</form>
 			</div>
 
