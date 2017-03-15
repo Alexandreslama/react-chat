@@ -43,7 +43,7 @@ class App extends React.Component{
 		const messages = {...this.state.messages}
 		//adding timestamp for each message
 		const timestamp = Date.now();
-		messages[`message-${timestamp}`] = message;
+		messages[`message : ${timestamp}`] = message;
 		console.log(timestamp);
 		//update the state
 		//delete if more than 20 messages
@@ -65,7 +65,7 @@ class App extends React.Component{
 	render() {
 		
 		
-		{this.state.timestamp}
+
 		
 		const messages_const = Object
 

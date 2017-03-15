@@ -21,7 +21,7 @@ class Connexion extends React.Component{
 			<div className="connexionBox" onSubmit={e => this.goToChat(e)}>
 			<form className="connexion"> 
 			<h1 className="speakr" >- Speakr -</h1>
-			<h6 className="speakr-motto" > the last twenty messages only</h6>
+			<h6 className="speakr-motto" > everyone can speak here</h6>
 			<input type="text" 
 			 	   placeholder="Enter your pseudo..." 
 			 	   ref={input => {this.pseudoInput = input}}
