@@ -13,10 +13,11 @@ state = {
 createMessage = event => {
 	event.preventDefault();
 
-	
+
 	const message = {
 		message: this.message.value,
-		pseudo: this.props.pseudo
+		pseudo: this.props.pseudo,
+		timestamp: Date.now()
 	};
 
 	this.props.addMessage(message);
@@ -38,15 +39,15 @@ compteur = event => {
 
 
 	render() {
-					// styles for the emoji picker wrapper 
+					// styles for the emoji picker wrapper
 
 		return(
 
-			<form className="form" 
+			<form className="form"
 				  onSubmit={e => this.createMessage(e)}
 				  ref={input => this.messageForm = input}
 			>
-				 <textarea maxLength={this.props.length} 
+				 <textarea maxLength={this.props.length}
 				 	       required
 				 	       ref={input => this.message = input}
 				 	       onChange={e => this.compteur(e)}
@@ -54,12 +55,12 @@ compteur = event => {
 				 </textarea>
 
 				 <div className="info">
-				 	{this.state.length} 
-				 	
+				 	{this.state.length}
+
 				 </div>
 				 <div className="last-seen">
-				   <span> Welcome to this Chat <strong> {this.props.pseudo}</strong> ! </span> 
-				 	
+				   <span> Welcome to this Chat <strong> {this.props.pseudo}</strong> ! </span>
+
 				 </div>
 
 
@@ -68,7 +69,7 @@ compteur = event => {
 				   <button type="submit"> Send </button>
 
 			</form>
-			
+
 
 
 		)

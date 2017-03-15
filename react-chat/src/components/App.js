@@ -16,17 +16,15 @@ class App extends React.Component{
 		messages: {},
 		timestamp: Date.now(),
 		lastseen: moment().startOf('hour').fromNow()
-	
-	
+
+
 	}
 
 	componentWillMount(){
-		this.ref = base.syncState('/messages', {
+		base.syncState('/messages', {
 			context: this,
-			state: 'messages'
-
-			
-
+			state: 'messages',
+			asArray: true
 		});
 	}
 
@@ -38,22 +36,30 @@ class App extends React.Component{
 
 
 	addMessage = message => {
-		//copy the state
-		// ... mean spread ES6
-		const messages = {...this.state.messages}
-		//adding timestamp for each message
-		const timestamp = Date.now();
-		messages[`message : ${timestamp}`] = message;
-		console.log(timestamp);
-		//update the state
-		//delete if more than 20 messages
-		Object.keys(messages).slice(0, -20).map(key => messages[key] = null) //null equals delete
-		
-		this.setState({ messages });
-
-	
-		
-
+		// //copy the state
+		// // ... mean spread ES6
+		// const messages = {...this.state.messages}
+		// //adding timestamp for each message
+		// const timestamp = Date.now();
+		// messages[`message : ${timestamp}`] = message;
+		// console.log(timestamp);
+		// base.push('messages', {
+		// 	message
+		// })
+		base.push('messages', {
+			data: message
+  	}).then().catch(err => {
+	    console.error(err)
+	  })
+		// //update the state
+		// //delete if more than 20 messages
+		// Object.keys(messages).slice(0, -20).map(key => messages[key] = null) //null equals delete
+		//
+		// this.setState({ messages });
+		//
+		//
+		//
+		//
 	};
 
 	isUser = (pseudo) => {
@@ -62,36 +68,51 @@ class App extends React.Component{
 
 
 
+	messageList() {
+		const arr = this.state.messages
+		if (arr && arr.length) {
+			return arr.map((data, index) => {
+				return (
+					<Message
+						key={index}
+						isUser={this.isUser(data.pseudo)}
+						data={data}
+					/>
+				)
+			})
+		}
+	}
+
 	render() {
-		
-		
 
-		
-		const messages_const = Object
+		//
+		//
+		//
+		// const messages_const = Object
+		//
+		// .keys(this.state.messages)
+		// .map(key => <Message key={key}
+		//
+		// 					 details={this.state.messages[key]}
+		// 					 isUser={this.isUser}
+		// 					 timestamp={this.state.timestamp}
+		// 					 />
+		//
+		// 					 );
+		//
+		//
+		//
+		//
+		//
+		//
 
-		.keys(this.state.messages)
-		.map(key => <Message key={key} 
-							 
-							 details={this.state.messages[key]}							 
-							 isUser={this.isUser}
-							 timestamp={this.state.timestamp}
-							 />
-
-							 );
-
-
-		
-		
-		
-		
-		
 	return(
 
-		
+
 		<div className="box">
 
 			<div>
-				<div className="messages" 
+				<div className="messages"
 					 ref={input => this.messages = input}
 				>
 					<ReactCSSTransitionGroup
@@ -101,8 +122,8 @@ class App extends React.Component{
 					transitionEnterTimeout={200}
 					transitionLeaveTimeout={200}
 					>
-				
-					{messages_const}
+
+					{this.messageList()}
 
 					</ReactCSSTransitionGroup>
 				</div>
@@ -110,12 +131,12 @@ class App extends React.Component{
 							pseudo={this.props.params.pseudo}
 							length={140}
 							lastseen={this.state.lastseen}
-							
-							
-				/> 
-					
 
-			</div> 
+
+				/>
+
+
+			</div>
 		</div>
 
 		)
