@@ -84,6 +84,7 @@ body {
     align-items: flex-end;
     width: 100%;
     max-width: 450px;
+    max-height: 750px;
     height: calc(95vh - 100px);
     background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
     border-radius: 20px;
